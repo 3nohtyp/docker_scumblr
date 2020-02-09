@@ -23,7 +23,8 @@ RUN git clone https://github.com/Netflix/scumblr.git /scumblr
 # Install rvm, ruby, bundler, sidekiq
 RUN curl -sSL https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
-RUN /bin/bash -l -c "rvm install 2.0.0-p481"
+RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm install 2.0.0-p481"
+# RUN /bin/bash -l -c "rvm install 2.0.0-p481"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 RUN /bin/bash -l -c "gem install sidekiq --no-ri --no-rdoc"
 
